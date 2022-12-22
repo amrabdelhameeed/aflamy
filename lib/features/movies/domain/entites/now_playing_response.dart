@@ -1,0 +1,67 @@
+import 'package:aflamy/features/movies/data/models/now_playing_response_model.dart';
+import 'package:equatable/equatable.dart';
+
+class MoviesResponse extends Equatable {
+  final int? page;
+  final List<MovieModel>? movies;
+  final int? totalPages;
+  final int? totalmovies;
+  const MoviesResponse(
+      {required this.page,
+      required this.movies,
+      required this.totalPages,
+      required this.totalmovies});
+
+  @override
+  List<Object?> get props => [page, movies, totalPages, totalmovies];
+}
+
+class Movie extends Equatable {
+  final bool? adult;
+  final String? backdropPath; // *
+  final int? id; // *
+  final List<int>? geners;
+  final String? originalLanguage;
+  final String? originalTitle;
+  final String? overview;
+  final double? popularity;
+  final String? posterPath;
+  final String? releaseDate;
+  final String? title;
+  final bool? video;
+  final double? voteAverage;
+  final int? voteCount;
+
+  const Movie(
+      {required this.adult,
+      required this.backdropPath,
+      required this.id,
+      required this.geners,
+      required this.originalLanguage,
+      required this.originalTitle,
+      required this.overview,
+      required this.popularity,
+      required this.posterPath,
+      required this.releaseDate,
+      required this.title,
+      required this.video,
+      required this.voteAverage,
+      required this.voteCount});
+  @override
+  List<Object?> get props => [
+        adult,
+        backdropPath,
+        geners,
+        id,
+        originalLanguage,
+        originalTitle,
+        overview,
+        popularity,
+        posterPath,
+        releaseDate,
+        title,
+        video,
+        voteAverage,
+        voteCount
+      ];
+}
