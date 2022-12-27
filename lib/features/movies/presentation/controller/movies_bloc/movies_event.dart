@@ -7,25 +7,25 @@ abstract class MoviesEvent extends Equatable {
   List<Object> get props => [];
 }
 
-class GetPopularEvent extends MoviesEvent {
-  const GetPopularEvent();
-
+class GetTrendingEvent extends MoviesEvent {
+  const GetTrendingEvent({this.page = 1});
+  final int page;
   @override
-  List<Object> get props => [];
+  List<Object> get props => [page];
 }
 
-class GetTopRatedEvent extends MoviesEvent {
-  const GetTopRatedEvent();
-
+class GetUpComingEvent extends MoviesEvent {
+  const GetUpComingEvent({this.page = 1});
+  final int page;
   @override
-  List<Object> get props => [];
+  List<Object> get props => [page];
 }
 
 class GetNowPlayingEvent extends MoviesEvent {
-  const GetNowPlayingEvent();
-
+  const GetNowPlayingEvent({this.page = 1});
+  final int page;
   @override
-  List<Object> get props => [];
+  List<Object> get props => [page];
 }
 
 class GetAllGenresEvent extends MoviesEvent {
@@ -37,7 +37,8 @@ class GetAllGenresEvent extends MoviesEvent {
 class GetMoviesByGenresIdEvent extends MoviesEvent {
   final int id;
   final int index;
-  const GetMoviesByGenresIdEvent({this.id = -1, this.index = 0});
+  final int page;
+  const GetMoviesByGenresIdEvent({this.id = -1, this.index = 0, this.page = 1});
   @override
   List<Object> get props => [id, index];
 }

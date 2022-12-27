@@ -1,11 +1,12 @@
-import 'package:aflamy/core/errors/execptions.dart';
-import 'package:aflamy/core/errors/failure.dart';
-import 'package:aflamy/features/movies/data/data_source/base_movies_remote_data_source.dart';
-import 'package:aflamy/features/movies/data/models/actor_model.dart';
-import 'package:aflamy/features/movies/data/models/genre_model.dart';
-import 'package:aflamy/features/movies/data/models/now_playing_response_model.dart';
-import 'package:aflamy/features/movies/domain/entites/now_playing_response.dart';
-import 'package:aflamy/features/movies/domain/repositories/base_movies_repository.dart';
+import 'package:aflamy/core/utils/parameters/get_movie_by_genre_id_parameters.dart';
+
+import '../../../../core/errors/execptions.dart';
+import '../../../../core/errors/failure.dart';
+import '../data_source/base_movies_remote_data_source.dart';
+import '../models/actor_model.dart';
+import '../models/genre_model.dart';
+import '../models/now_playing_response_model.dart';
+import '../../domain/repositories/base_movies_repository.dart';
 import 'package:dartz/dartz.dart';
 
 class MovieRepository extends BaseMoviesRepository {
@@ -13,9 +14,9 @@ class MovieRepository extends BaseMoviesRepository {
   MovieRepository(this.baseMoviesRemoteDataSource);
 
   @override
-  Future<Either<Failure, MoviesResponseModel>> getNowPlaying() async {
+  Future<Either<Failure, MoviesResponseModel>> getNowPlaying(int page) async {
     // return await baseMoviesRemoteDataSource.getNowPlaying();
-    final response = await baseMoviesRemoteDataSource.getNowPlaying();
+    final response = await baseMoviesRemoteDataSource.getNowPlaying(page);
     try {
       print(response.totalmovies);
       return Right(response);
@@ -25,8 +26,8 @@ class MovieRepository extends BaseMoviesRepository {
   }
 
   @override
-  Future<Either<Failure, MoviesResponseModel>> getPopularNow() async {
-    final response = await baseMoviesRemoteDataSource.getPopularMovies();
+  Future<Either<Failure, MoviesResponseModel>> getTrendingNow(int page) async {
+    final response = await baseMoviesRemoteDataSource.getTrendingMovies(page);
     try {
       return Right(response);
     } on ServerExceptions catch (failure) {
@@ -35,8 +36,8 @@ class MovieRepository extends BaseMoviesRepository {
   }
 
   @override
-  Future<Either<Failure, MoviesResponseModel>> getTopRated() async {
-    final response = await baseMoviesRemoteDataSource.getTopRated();
+  Future<Either<Failure, MoviesResponseModel>> getUpComing(int page) async {
+    final response = await baseMoviesRemoteDataSource.getUpComing(page);
     try {
       return Right(response);
     } on ServerExceptions catch (failure) {

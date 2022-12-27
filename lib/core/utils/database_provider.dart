@@ -1,4 +1,4 @@
-import 'package:aflamy/core/utils/app_database_keys.dart';
+import 'app_database_keys.dart';
 import 'package:flutter/foundation.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 
@@ -11,11 +11,15 @@ class DatabaseProvider {
   static bool isFavourite(int id) => _box.containsKey(id);
   // if the box contains the id so delete the entry else add it.
   static Future<bool> addOrRemoveFromFavourites(int id) async {
+    print(id);
+    print(favourites());
     if (isFavourite(id)) {
       await _box.delete(id);
       return false;
     } else {
-      await _box.put(id, id);
+      if (int.tryParse(id.toString()) != null) {
+        await _box.put(id, id);
+      }
       return true;
     }
   }

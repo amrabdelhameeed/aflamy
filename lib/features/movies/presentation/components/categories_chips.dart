@@ -1,6 +1,6 @@
-import 'package:aflamy/core/utils/enums.dart';
-import 'package:aflamy/features/movies/presentation/components/movies_listview.dart';
-import 'package:aflamy/features/movies/presentation/controller/movies_bloc/movies_bloc.dart';
+import '../../../../core/utils/enums.dart';
+import 'movies_listview.dart';
+import '../controller/movies_bloc/movies_bloc.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -59,7 +59,10 @@ class CategoriesChips extends StatelessWidget {
         BlocBuilder<MoviesBloc, MoviesState>(
           builder: (context, state) {
             if (state.moviesByGenreIdRequestState == RequestState.loaded) {
-              return MoviesListView(movies: state.moviesByGenreId!.movies!);
+              return MoviesListView(
+                  fetchPages: (page) async {},
+                  page: 1,
+                  movies: state.moviesByGenreId ?? []);
             } else {
               return const SizedBox(
                 height: 250,

@@ -1,5 +1,4 @@
-import 'package:aflamy/core/utils/database_provider.dart';
-import 'package:aflamy/service_locator/services_locator.dart';
+import '../../../../../core/utils/database_provider.dart';
 import 'package:bloc/bloc.dart';
 import 'package:equatable/equatable.dart';
 

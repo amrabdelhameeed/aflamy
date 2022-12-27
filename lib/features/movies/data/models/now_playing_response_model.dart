@@ -1,6 +1,5 @@
-import 'package:aflamy/core/utils/app_constants.dart';
-import 'package:aflamy/core/utils/database_provider.dart';
-import 'package:aflamy/features/movies/domain/entites/now_playing_response.dart';
+import '../../../../core/utils/app_constants.dart';
+import '../../domain/entites/now_playing_response.dart';
 
 class MoviesResponseModel extends MoviesResponse {
   const MoviesResponseModel(
@@ -20,10 +19,8 @@ class MoviesResponseModel extends MoviesResponse {
 }
 
 class MovieModel extends Movie {
-  bool? isFavourite;
-  MovieModel(
-      {this.isFavourite = false,
-      required super.adult,
+  const MovieModel(
+      {required super.adult,
       required super.backdropPath,
       required super.id,
       required super.geners,
@@ -45,11 +42,11 @@ class MovieModel extends Movie {
             ? ""
             : AppConstants.baseURLForImages + json['backdrop_path'],
         id: json['id'] ?? -1,
-        isFavourite: DatabaseProvider.isFavourite(json['id'] ?? -1),
+        // isFavourite: DatabaseProvider.isFavourite(json['id'] ?? -1),
         originalLanguage: json['original_language'] ?? "",
         originalTitle: json['original_title'] ?? "",
         overview: json['overview'] ?? "",
-        popularity: json['popularity'] ?? 0.0,
+        popularity: json['popularity'].toDouble() ?? 0.0,
         posterPath: json['poster_path'] ?? "",
         releaseDate: json['release_date'] ?? "",
         title: json['title'] ?? "",

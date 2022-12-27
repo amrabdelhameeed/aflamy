@@ -1,10 +1,11 @@
-import 'package:aflamy/core/utils/app_database_keys.dart';
-import 'package:aflamy/core/utils/themes.dart';
-import 'package:aflamy/features/movies/presentation/screens/fake_screen.dart';
-import 'package:aflamy/service_locator/services_locator.dart';
+import 'core/utils/app_database_keys.dart';
+import 'core/utils/themes.dart';
+import 'features/movies/presentation/screens/fake_screen.dart';
+import 'service_locator/services_locator.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:hive/hive.dart';
+// ignore: depend_on_referenced_packages
 import 'package:path_provider/path_provider.dart' as path;
 
 Future main() async {
@@ -26,7 +27,7 @@ class MyApp extends StatelessWidget {
           theme: AppThemes.light,
           debugShowCheckedModeBanner: false,
           title: "Aflamy",
-          home: FakeScreen(),
+          home: const FakeScreen(),
         );
       },
     );
@@ -40,7 +41,8 @@ Future<void> _initHiveBoxes() async {
   await Hive.openBox<int>(AppDatabaseKeys.favouritesKey).then((box) {
     if (box.isEmpty) {
       // box.put(1, true);
-      print("done ya basha ahmed");
+      debugPrint(
+          "------------------------------------------ database opened ------------------------------------------");
     }
   });
 }

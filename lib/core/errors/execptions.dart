@@ -1,4 +1,4 @@
-import 'package:aflamy/core/errors/error_model.dart';
+import 'error_model.dart';
 
 class ServerExceptions implements Exception {
   final ErrorModel errorModel;

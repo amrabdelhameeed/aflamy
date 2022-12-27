@@ -1,18 +1,19 @@
-import 'package:aflamy/core/errors/execptions.dart';
-import 'package:aflamy/core/errors/error_model.dart';
-import 'package:aflamy/core/utils/app_constants.dart';
-import 'package:aflamy/features/movies/data/models/actor_model.dart';
-import 'package:aflamy/features/movies/data/models/genre_model.dart';
-import 'package:aflamy/features/movies/data/models/now_playing_response_model.dart';
-import 'package:aflamy/features/movies/data/data_source/base_movies_remote_data_source.dart';
-import 'package:aflamy/service_locator/services_locator.dart';
+import 'package:aflamy/core/utils/parameters/get_movie_by_genre_id_parameters.dart';
+
+import '../../../../core/errors/execptions.dart';
+import '../../../../core/errors/error_model.dart';
+import '../../../../core/utils/app_constants.dart';
+import '../models/actor_model.dart';
+import '../models/genre_model.dart';
+import '../models/now_playing_response_model.dart';
+import 'base_movies_remote_data_source.dart';
+import '../../../../service_locator/services_locator.dart';
 import 'package:dio/dio.dart';
 
 class MoviesRemoteDataSource extends BaseMoviesRemoteDataSource {
   @override
-  Future<MoviesResponseModel> getNowPlaying() async {
-    final response =
-        await sl<Dio>().get("${AppConstants.nowPlaying}&language=en-US&page=1");
+  Future<MoviesResponseModel> getNowPlaying(int page) async {
+    final response = await sl<Dio>().get(AppConstants.nowPlaying(page));
     if (response.statusCode == 200) {
       // print(response.data);
       return MoviesResponseModel.fromJson(response.data);
@@ -22,9 +23,8 @@ class MoviesRemoteDataSource extends BaseMoviesRemoteDataSource {
   }
 
   @override
-  Future<MoviesResponseModel> getPopularMovies() async {
-    final response =
-        await sl<Dio>().get("${AppConstants.popular}&language=en-US&page=1");
+  Future<MoviesResponseModel> getTrendingMovies(int page) async {
+    final response = await sl<Dio>().get(AppConstants.trending(page));
     if (response.statusCode == 200) {
       return MoviesResponseModel.fromJson(response.data);
     } else {
@@ -33,9 +33,8 @@ class MoviesRemoteDataSource extends BaseMoviesRemoteDataSource {
   }
 
   @override
-  Future<MoviesResponseModel> getTopRated() async {
-    final response =
-        await sl<Dio>().get("${AppConstants.topRated}&language=en-US&page=1");
+  Future<MoviesResponseModel> getUpComing(int page) async {
+    final response = await sl<Dio>().get("${AppConstants.upComing(page)}");
     if (response.statusCode == 200) {
       return MoviesResponseModel.fromJson(response.data);
     } else {

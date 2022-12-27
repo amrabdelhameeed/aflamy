@@ -1,4 +1,4 @@
-import 'package:aflamy/features/movies/domain/entites/genre.dart';
+import '../../domain/entites/genre.dart';
 
 class GenreModel extends Genre {
   GenreModel(super.id, super.name);

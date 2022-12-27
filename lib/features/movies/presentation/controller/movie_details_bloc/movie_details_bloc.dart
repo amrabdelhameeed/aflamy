@@ -1,9 +1,8 @@
-import 'package:aflamy/core/utils/enums.dart';
-import 'package:aflamy/features/movies/data/models/actor_model.dart';
-import 'package:aflamy/features/movies/data/models/now_playing_response_model.dart';
-import 'package:aflamy/features/movies/domain/entites/now_playing_response.dart';
-import 'package:aflamy/features/movies/domain/usecases/get_all_actors_usecase.dart';
-import 'package:aflamy/features/movies/domain/usecases/get_movie_details_usecase.dart';
+import '../../../../../core/utils/enums.dart';
+import '../../../data/models/actor_model.dart';
+import '../../../data/models/now_playing_response_model.dart';
+import '../../../domain/usecases/get_all_actors_usecase.dart';
+import '../../../domain/usecases/get_movie_details_usecase.dart';
 import 'package:bloc/bloc.dart';
 import 'package:equatable/equatable.dart';
 

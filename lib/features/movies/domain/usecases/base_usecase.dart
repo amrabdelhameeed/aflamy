@@ -1,4 +1,4 @@
-import 'package:aflamy/core/errors/failure.dart';
+import '../../../../core/errors/failure.dart';
 import 'package:dartz/dartz.dart';
 import 'package:equatable/equatable.dart';
 

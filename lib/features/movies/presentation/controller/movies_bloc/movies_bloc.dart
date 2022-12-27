@@ -1,12 +1,14 @@
-import 'package:aflamy/core/utils/enums.dart';
-import 'package:aflamy/features/movies/data/models/genre_model.dart';
-import 'package:aflamy/features/movies/domain/entites/now_playing_response.dart';
-import 'package:aflamy/features/movies/domain/usecases/base_usecase.dart';
-import 'package:aflamy/features/movies/domain/usecases/get_all_genres_usecase.dart';
-import 'package:aflamy/features/movies/domain/usecases/get_movies_by_genre_id_usecase.dart';
-import 'package:aflamy/features/movies/domain/usecases/get_now_playing_usecase.dart';
-import 'package:aflamy/features/movies/domain/usecases/get_popular_usecase.dart';
-import 'package:aflamy/features/movies/domain/usecases/get_top_rated_usecase.dart';
+import 'package:aflamy/core/utils/parameters/get_movie_by_genre_id_parameters.dart';
+
+import '../../../../../core/utils/enums.dart';
+import '../../../data/models/genre_model.dart';
+import '../../../domain/entites/now_playing_response.dart';
+import '../../../domain/usecases/base_usecase.dart';
+import '../../../domain/usecases/get_all_genres_usecase.dart';
+import '../../../domain/usecases/get_movies_by_genre_id_usecase.dart';
+import '../../../domain/usecases/get_now_playing_usecase.dart';
+import '../../../domain/usecases/get_trending_usecase.dart';
+import '../../../domain/usecases/get_up_coming_usecase.dart';
 import 'package:bloc/bloc.dart';
 import 'package:equatable/equatable.dart';
 part 'movies_event.dart';
@@ -16,15 +18,15 @@ class MoviesBloc extends Bloc<MoviesEvent, MoviesState> {
   final GetAllGenresUseCase getAllGenresUseCase;
   final GetMoviesByGenreIdUsecase getMoviesByGenreIdUsecase;
   final GetNowPlayingUseCase nowPlayingUseCase;
-  final GetPopularUseCase getPopularUseCase;
-  final GetTopRatedUseCase getTopRatedUseCase;
+  final GetTrendingUseCase getTrendingUseCase;
+  final GetUpComingUseCase getUpComingUseCase;
   int choiceIndex = 0;
   MoviesBloc({
     required this.getMoviesByGenreIdUsecase,
     required this.nowPlayingUseCase,
-    required this.getPopularUseCase,
+    required this.getTrendingUseCase,
     required this.getAllGenresUseCase,
-    required this.getTopRatedUseCase,
+    required this.getUpComingUseCase,
   }) : super(const MoviesState()) {
     on<GetAllGenresEvent>((event, emit) async {
       emit(state.copyWith(genresRequestState: RequestState.loading));
@@ -38,7 +40,7 @@ class MoviesBloc extends Bloc<MoviesEvent, MoviesState> {
     });
     on<GetNowPlayingEvent>((event, emit) async {
       emit(state.copyWith(nowPlayingRequestState: RequestState.loading));
-      final result = await nowPlayingUseCase(const NoParams());
+      final result = await nowPlayingUseCase(event.page);
       result.fold(
           (l) => {
                 emit(state.copyWith(
@@ -48,37 +50,43 @@ class MoviesBloc extends Bloc<MoviesEvent, MoviesState> {
           (r) => {
                 emit(state.copyWith(
                     nowPlayingRequestState: RequestState.loaded,
-                    nowPlayingResponse: r))
+                    nowPlayingResponse: r.movies!)),
               });
     });
-    on<GetPopularEvent>((event, emit) async {
-      emit(state.copyWith(nowPlayingRequestState: RequestState.loading));
-      final result = await getPopularUseCase(const NoParams());
+    on<GetTrendingEvent>((event, emit) async {
+      emit(state.copyWith(trendingRequestState: RequestState.loading));
+      final result = await getTrendingUseCase(event.page);
       result.fold(
           (l) => {
                 emit(state.copyWith(
-                    nowPlayingMessage: l.message,
-                    nowPlayingRequestState: RequestState.error))
+                    trendingMessage: l.message,
+                    trendingRequestState: RequestState.error))
               },
           (r) => {
                 emit(state.copyWith(
-                    nowPlayingRequestState: RequestState.loaded,
-                    nowPlayingResponse: r))
+                    trendingRequestState: RequestState.loaded,
+                    trendingResponse: [
+                      ...state.trendingResponse ?? [],
+                      ...r.movies ?? []
+                    ]))
               });
     });
-    on<GetTopRatedEvent>((event, emit) async {
-      emit(state.copyWith(nowPlayingRequestState: RequestState.loading));
-      final result = await getTopRatedUseCase(const NoParams());
+    on<GetUpComingEvent>((event, emit) async {
+      emit(state.copyWith(upComingRequestState: RequestState.loading));
+      final result = await getUpComingUseCase(event.page);
       result.fold(
           (l) => {
                 emit(state.copyWith(
-                    nowPlayingMessage: l.message,
-                    nowPlayingRequestState: RequestState.error))
+                    upComingMessage: l.message,
+                    upComingRequestState: RequestState.error))
               },
           (r) => {
                 emit(state.copyWith(
-                    nowPlayingRequestState: RequestState.loaded,
-                    nowPlayingResponse: r))
+                    upComingRequestState: RequestState.loaded,
+                    upComingResponse: [
+                      ...state.upComingResponse ?? [],
+                      ...r.movies ?? []
+                    ]))
               });
     });
     on<GetMoviesByGenresIdEvent>((event, emit) async {
@@ -94,7 +102,7 @@ class MoviesBloc extends Bloc<MoviesEvent, MoviesState> {
           (r) => {
                 emit(state.copyWith(
                     moviesByGenreIdRequestState: RequestState.loaded,
-                    moviesByGenreId: r))
+                    moviesByGenreId: r.movies))
               });
     });
   }
