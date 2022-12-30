@@ -1,17 +1,9 @@
-import '../../domain/entites/now_playing_response.dart';
+import '../../domain/entites/movies_response.dart';
+
 import 'cached_image_with_shimmer.dart';
 import 'favourite_icon.dart';
-
-import '../../../../core/utils/custom_icons_icons.dart';
-import '../../../../core/utils/database_provider.dart';
-import '../../data/models/now_playing_response_model.dart';
-import '../controller/favourites_bloc/favourites_bloc.dart';
 import '../screens/movie_details.dart';
-import '../../../../service_locator/services_locator.dart';
-import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:shimmer/shimmer.dart';
 
 class MovieItem extends StatelessWidget {
   const MovieItem({

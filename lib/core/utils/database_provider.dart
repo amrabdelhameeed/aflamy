@@ -1,6 +1,7 @@
-import 'app_database_keys.dart';
 import 'package:flutter/foundation.dart';
 import 'package:hive_flutter/hive_flutter.dart';
+
+import 'app_database_keys.dart';
 
 class DatabaseProvider {
   // Favourites Box.

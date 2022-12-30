@@ -1,3 +1,5 @@
+import '../models/movies_response_model.dart';
+
 import '../../../../core/utils/parameters/get_movie_by_genre_id_parameters.dart';
 
 import '../../../../core/errors/execptions.dart';
@@ -5,7 +7,6 @@ import '../../../../core/errors/error_model.dart';
 import '../../../../core/utils/app_constants.dart';
 import '../models/actor_model.dart';
 import '../models/genre_model.dart';
-import '../models/now_playing_response_model.dart';
 import 'base_movies_remote_data_source.dart';
 import '../../../../service_locator/services_locator.dart';
 import 'package:dio/dio.dart';

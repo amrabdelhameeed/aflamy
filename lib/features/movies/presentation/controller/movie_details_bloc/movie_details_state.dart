@@ -3,7 +3,7 @@ part of 'movie_details_bloc.dart';
 class MovieDetailsState extends Equatable {
   final RequestState? movieRequestState;
   final String? movieMessage;
-  final MovieModel? movie;
+  final Movie? movie;
   final RequestState? castRequestState;
   final String? castMessage;
   final List<ActorModel>? cast;
@@ -17,7 +17,7 @@ class MovieDetailsState extends Equatable {
   MovieDetailsState copyWith({
     RequestState? movieRequestState,
     String? movieMessage,
-    MovieModel? movie,
+    Movie? movie,
     RequestState? castRequestState,
     String? castMessage,
     List<ActorModel>? cast,

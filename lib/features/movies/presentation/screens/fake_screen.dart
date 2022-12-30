@@ -1,7 +1,4 @@
-import '../../../../core/utils/database_provider.dart';
 import '../components/up_coming_carousel.dart';
-import '../controller/favourites_bloc/favourites_bloc.dart';
-import 'movie_details.dart';
 import 'trending_screen.dart';
 
 import '../../../../core/app_widgets/title_with_widget.dart';
@@ -10,14 +7,12 @@ import '../../../../core/utils/app_strings.dart';
 import '../../../../core/utils/assets.dart';
 import '../../../../core/utils/custom_icons_icons.dart';
 import '../../../../core/utils/enums.dart';
-import '../../domain/entites/now_playing_response.dart';
 import '../components/categories_chips.dart';
 import '../components/movies_listview.dart';
 import '../controller/bottom_nav_bar_bloc/bottom_nav_bar_bloc.dart';
 import '../controller/movies_bloc/movies_bloc.dart';
 import 'test_page.dart';
 import '../../../../service_locator/services_locator.dart';
-import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 

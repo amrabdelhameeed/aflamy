@@ -1,5 +1,6 @@
+import '../../domain/entites/movies_response.dart';
+
 import '../../../../core/utils/app_constants.dart';
-import '../../domain/entites/now_playing_response.dart';
 
 class MoviesResponseModel extends MoviesResponse {
   const MoviesResponseModel(

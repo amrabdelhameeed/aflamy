@@ -1,9 +1,9 @@
+import '../../data/models/movies_response_model.dart';
 import 'package:dartz/dartz.dart';
 
 import '../../../../core/errors/failure.dart';
 import '../../data/models/actor_model.dart';
 import '../../data/models/genre_model.dart';
-import '../../data/models/now_playing_response_model.dart';
 
 abstract class BaseMoviesRepository {
   Future<Either<Failure, MoviesResponseModel>> getNowPlaying(int page);

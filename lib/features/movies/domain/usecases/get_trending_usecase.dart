@@ -1,11 +1,10 @@
+import '../../data/models/movies_response_model.dart';
 import '../../../../core/errors/failure.dart';
-import '../../data/models/now_playing_response_model.dart';
-import '../entites/now_playing_response.dart';
 import '../repositories/base_movies_repository.dart';
 import 'base_usecase.dart';
 import 'package:dartz/dartz.dart';
 
-class GetTrendingUseCase extends BaseUseCase<MoviesResponse, int> {
+class GetTrendingUseCase extends BaseUseCase<MoviesResponseModel, int> {
   final BaseMoviesRepository baseMoviesRepository;
   GetTrendingUseCase(this.baseMoviesRepository);
   @override

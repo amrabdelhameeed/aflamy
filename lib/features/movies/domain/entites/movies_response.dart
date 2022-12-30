@@ -1,4 +1,4 @@
-import '../../data/models/now_playing_response_model.dart';
+import '../../data/models/movies_response_model.dart';
 import 'package:equatable/equatable.dart';
 
 class MoviesResponse extends Equatable {

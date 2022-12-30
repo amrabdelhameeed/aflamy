@@ -1,5 +1,6 @@
+import '../../domain/entites/movies_response.dart';
+
 import '../../../../core/utils/enums.dart';
-import '../../domain/entites/now_playing_response.dart';
 import '../../domain/usecases/base_usecase.dart';
 import '../../domain/usecases/get_now_playing_usecase.dart';
 import '../controller/movies_bloc/movies_bloc.dart';

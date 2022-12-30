@@ -1,14 +1,8 @@
+import '../../domain/entites/movies_response.dart';
 import '../../../../core/utils/app_colors.dart';
-import '../../../../core/utils/custom_icons_icons.dart';
-import '../../../../core/utils/database_provider.dart';
 import '../components/cached_image_with_shimmer.dart';
 import '../components/favourite_icon.dart';
-import '../controller/favourites_bloc/favourites_bloc.dart';
-import 'package:cached_network_image/cached_network_image.dart';
-import 'package:shimmer/shimmer.dart';
-
 import '../../../../core/utils/enums.dart';
-import '../../domain/entites/now_playing_response.dart';
 import '../controller/movie_details_bloc/movie_details_bloc.dart';
 import '../../../../service_locator/services_locator.dart';
 import 'package:flutter/material.dart';

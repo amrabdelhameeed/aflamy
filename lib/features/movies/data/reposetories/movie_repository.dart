@@ -1,11 +1,10 @@
-import '../../../../core/utils/parameters/get_movie_by_genre_id_parameters.dart';
+import '../models/movies_response_model.dart';
 
 import '../../../../core/errors/execptions.dart';
 import '../../../../core/errors/failure.dart';
 import '../data_source/base_movies_remote_data_source.dart';
 import '../models/actor_model.dart';
 import '../models/genre_model.dart';
-import '../models/now_playing_response_model.dart';
 import '../../domain/repositories/base_movies_repository.dart';
 import 'package:dartz/dartz.dart';
 

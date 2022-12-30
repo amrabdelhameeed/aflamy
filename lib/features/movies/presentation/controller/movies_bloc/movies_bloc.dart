@@ -1,8 +1,6 @@
-import '../../../../../core/utils/parameters/get_movie_by_genre_id_parameters.dart';
-
+import '../../../domain/entites/movies_response.dart';
 import '../../../../../core/utils/enums.dart';
 import '../../../data/models/genre_model.dart';
-import '../../../domain/entites/now_playing_response.dart';
 import '../../../domain/usecases/base_usecase.dart';
 import '../../../domain/usecases/get_all_genres_usecase.dart';
 import '../../../domain/usecases/get_movies_by_genre_id_usecase.dart';
