@@ -2,11 +2,9 @@ import '../../../../core/utils/enums.dart';
 import '../components/cached_image_with_shimmer.dart';
 import '../components/favourite_icon.dart';
 import '../controller/movies_bloc/movies_bloc.dart';
-import 'movie_details.dart';
-import 'package:cached_network_image/cached_network_image.dart';
+import 'movie_details_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:shimmer/shimmer.dart';
 
 class TrendingScreen extends StatefulWidget {
   const TrendingScreen({

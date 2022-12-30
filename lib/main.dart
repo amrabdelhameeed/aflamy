@@ -6,7 +6,7 @@ import 'package:path_provider/path_provider.dart' as path;
 
 import 'core/utils/app_database_keys.dart';
 import 'core/utils/themes.dart';
-import 'features/movies/presentation/screens/fake_screen.dart';
+import 'features/movies/presentation/screens/home_screen.dart';
 import 'service_locator/services_locator.dart';
 
 Future main() async {

@@ -3,7 +3,7 @@ import '../../domain/entites/movies_response.dart';
 import '../../../../core/utils/custom_icons_icons.dart';
 import '../../../../core/utils/database_provider.dart';
 import '../controller/favourites_bloc/favourites_bloc.dart';
-import '../screens/movie_details.dart';
+import '../screens/movie_details_screen.dart';
 import '../../../../service_locator/services_locator.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';

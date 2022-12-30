@@ -11,7 +11,7 @@ import '../components/categories_chips.dart';
 import '../components/movies_listview.dart';
 import '../controller/bottom_nav_bar_bloc/bottom_nav_bar_bloc.dart';
 import '../controller/movies_bloc/movies_bloc.dart';
-import 'test_page.dart';
+import 'favourites_screen.dart';
 import '../../../../service_locator/services_locator.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -27,7 +27,7 @@ List<Widget> screens = const [Home(), TestPage()];
 List<Widget> titles = [
   Image.asset(Assets.assetsImagesAppIcon,
       width: 23, height: 33, fit: BoxFit.cover),
-  const Text("Favouritses")
+  const Text("Favorites")
 ];
 
 class _FakeScreenState extends State<FakeScreen> {

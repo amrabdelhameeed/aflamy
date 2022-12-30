@@ -2,7 +2,7 @@ import '../../domain/entites/movies_response.dart';
 
 import 'cached_image_with_shimmer.dart';
 import 'favourite_icon.dart';
-import '../screens/movie_details.dart';
+import '../screens/movie_details_screen.dart';
 import 'package:flutter/material.dart';
 
 class MovieItem extends StatelessWidget {
