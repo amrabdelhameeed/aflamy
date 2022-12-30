@@ -1,6 +1,6 @@
-import 'package:aflamy/features/movies/domain/entites/now_playing_response.dart';
-import 'package:aflamy/features/movies/presentation/components/cached_image_with_shimmer.dart';
-import 'package:aflamy/features/movies/presentation/components/favourite_icon.dart';
+import '../../domain/entites/now_playing_response.dart';
+import 'cached_image_with_shimmer.dart';
+import 'favourite_icon.dart';
 
 import '../../../../core/utils/custom_icons_icons.dart';
 import '../../../../core/utils/database_provider.dart';

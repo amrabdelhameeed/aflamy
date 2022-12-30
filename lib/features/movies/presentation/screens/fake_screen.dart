@@ -1,8 +1,8 @@
-import 'package:aflamy/core/utils/database_provider.dart';
-import 'package:aflamy/features/movies/presentation/components/up_coming_carousel.dart';
-import 'package:aflamy/features/movies/presentation/controller/favourites_bloc/favourites_bloc.dart';
-import 'package:aflamy/features/movies/presentation/screens/movie_details.dart';
-import 'package:aflamy/features/movies/presentation/screens/trending_screen.dart';
+import '../../../../core/utils/database_provider.dart';
+import '../components/up_coming_carousel.dart';
+import '../controller/favourites_bloc/favourites_bloc.dart';
+import 'movie_details.dart';
+import 'trending_screen.dart';
 
 import '../../../../core/app_widgets/title_with_widget.dart';
 import '../../../../core/utils/app_colors.dart';

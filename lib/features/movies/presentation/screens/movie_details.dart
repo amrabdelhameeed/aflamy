@@ -1,9 +1,9 @@
-import 'package:aflamy/core/utils/app_colors.dart';
-import 'package:aflamy/core/utils/custom_icons_icons.dart';
-import 'package:aflamy/core/utils/database_provider.dart';
-import 'package:aflamy/features/movies/presentation/components/cached_image_with_shimmer.dart';
-import 'package:aflamy/features/movies/presentation/components/favourite_icon.dart';
-import 'package:aflamy/features/movies/presentation/controller/favourites_bloc/favourites_bloc.dart';
+import '../../../../core/utils/app_colors.dart';
+import '../../../../core/utils/custom_icons_icons.dart';
+import '../../../../core/utils/database_provider.dart';
+import '../components/cached_image_with_shimmer.dart';
+import '../components/favourite_icon.dart';
+import '../controller/favourites_bloc/favourites_bloc.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:shimmer/shimmer.dart';
 

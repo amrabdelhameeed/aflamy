@@ -1,4 +1,4 @@
-import 'package:aflamy/core/utils/parameters/get_movie_by_genre_id_parameters.dart';
+import '../../../../core/utils/parameters/get_movie_by_genre_id_parameters.dart';
 
 import '../../../../core/errors/execptions.dart';
 import '../../../../core/errors/error_model.dart';
@@ -15,7 +15,6 @@ class MoviesRemoteDataSource extends BaseMoviesRemoteDataSource {
   Future<MoviesResponseModel> getNowPlaying(int page) async {
     final response = await sl<Dio>().get(AppConstants.nowPlaying(page));
     if (response.statusCode == 200) {
-      // print(response.data);
       return MoviesResponseModel.fromJson(response.data);
     } else {
       throw ServerExceptions(errorModel: ErrorModel.fromJson(response.data));

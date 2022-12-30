@@ -1,4 +1,4 @@
-import 'package:aflamy/core/utils/parameters/get_movie_by_genre_id_parameters.dart';
+import '../../../../core/utils/parameters/get_movie_by_genre_id_parameters.dart';
 
 import '../../../../core/errors/execptions.dart';
 import '../../../../core/errors/failure.dart';
@@ -18,7 +18,6 @@ class MovieRepository extends BaseMoviesRepository {
     // return await baseMoviesRemoteDataSource.getNowPlaying();
     final response = await baseMoviesRemoteDataSource.getNowPlaying(page);
     try {
-      print(response.totalmovies);
       return Right(response);
     } on ServerExceptions catch (failure) {
       return Left(ServerFailure(failure.errorModel.statusMessage));

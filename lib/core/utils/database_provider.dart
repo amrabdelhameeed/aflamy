@@ -11,8 +11,6 @@ class DatabaseProvider {
   static bool isFavourite(int id) => _box.containsKey(id);
   // if the box contains the id so delete the entry else add it.
   static Future<bool> addOrRemoveFromFavourites(int id) async {
-    print(id);
-    print(favourites());
     if (isFavourite(id)) {
       await _box.delete(id);
       return false;
@@ -26,7 +24,6 @@ class DatabaseProvider {
 
   static List<int> favourites() {
     final l = _box.values.toList();
-    print(l);
     return l;
   }
 }

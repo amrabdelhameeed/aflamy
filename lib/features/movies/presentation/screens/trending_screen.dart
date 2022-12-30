@@ -1,8 +1,8 @@
-import 'package:aflamy/core/utils/enums.dart';
-import 'package:aflamy/features/movies/presentation/components/cached_image_with_shimmer.dart';
-import 'package:aflamy/features/movies/presentation/components/favourite_icon.dart';
-import 'package:aflamy/features/movies/presentation/controller/movies_bloc/movies_bloc.dart';
-import 'package:aflamy/features/movies/presentation/screens/movie_details.dart';
+import '../../../../core/utils/enums.dart';
+import '../components/cached_image_with_shimmer.dart';
+import '../components/favourite_icon.dart';
+import '../controller/movies_bloc/movies_bloc.dart';
+import 'movie_details.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';

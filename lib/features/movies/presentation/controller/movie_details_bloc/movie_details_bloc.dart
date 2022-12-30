@@ -1,10 +1,11 @@
+import 'package:bloc/bloc.dart';
+import 'package:equatable/equatable.dart';
+
 import '../../../../../core/utils/enums.dart';
 import '../../../data/models/actor_model.dart';
 import '../../../data/models/now_playing_response_model.dart';
 import '../../../domain/usecases/get_all_actors_usecase.dart';
 import '../../../domain/usecases/get_movie_details_usecase.dart';
-import 'package:bloc/bloc.dart';
-import 'package:equatable/equatable.dart';
 
 part 'movie_details_event.dart';
 part 'movie_details_state.dart';

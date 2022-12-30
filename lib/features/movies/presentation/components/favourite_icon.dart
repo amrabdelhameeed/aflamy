@@ -1,8 +1,8 @@
-import 'package:aflamy/core/utils/custom_icons_icons.dart';
-import 'package:aflamy/core/utils/database_provider.dart';
-import 'package:aflamy/features/movies/domain/entites/now_playing_response.dart';
-import 'package:aflamy/features/movies/presentation/controller/favourites_bloc/favourites_bloc.dart';
-import 'package:aflamy/service_locator/services_locator.dart';
+import '../../../../core/utils/custom_icons_icons.dart';
+import '../../../../core/utils/database_provider.dart';
+import '../../domain/entites/now_playing_response.dart';
+import '../controller/favourites_bloc/favourites_bloc.dart';
+import '../../../../service_locator/services_locator.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 

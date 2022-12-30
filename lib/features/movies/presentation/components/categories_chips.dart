@@ -1,8 +1,9 @@
-import '../../../../core/utils/enums.dart';
-import 'movies_listview.dart';
-import '../controller/movies_bloc/movies_bloc.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+
+import '../../../../core/utils/enums.dart';
+import '../controller/movies_bloc/movies_bloc.dart';
+import 'movies_listview.dart';
 
 class CategoriesChips extends StatelessWidget {
   const CategoriesChips({super.key});
@@ -17,7 +18,6 @@ class CategoriesChips extends StatelessWidget {
                     current.moviesByGenreIdRequestState;
           },
           builder: (context, state) {
-            // print("---------------------------------------");
             if (state.genresRequestState == RequestState.loaded) {
               final genres = state.genres!;
               var bloc = context.read<MoviesBloc>();

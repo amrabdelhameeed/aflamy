@@ -1,6 +1,7 @@
-import 'app_colors.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+
+import 'app_colors.dart';
 
 class AppThemes {
   static final _light = ThemeData.light();

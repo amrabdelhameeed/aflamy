@@ -1,4 +1,4 @@
-import 'package:aflamy/features/movies/presentation/controller/movies_bloc/movies_bloc.dart';
+import '../features/movies/presentation/controller/movies_bloc/movies_bloc.dart';
 
 import '../features/movies/data/data_source/base_movies_remote_data_source.dart';
 import '../features/movies/data/data_source/movies_remote_data_source.dart';

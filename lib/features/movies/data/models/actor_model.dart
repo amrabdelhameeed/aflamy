@@ -1,4 +1,4 @@
-import 'package:aflamy/core/utils/app_constants.dart';
+import '../../../../core/utils/app_constants.dart';
 
 import '../../domain/entites/actor.dart';
 

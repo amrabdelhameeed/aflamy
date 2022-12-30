@@ -10,7 +10,6 @@ class MoviesGridView extends StatelessWidget {
   final List moviesIds; // 12,5,9897
   @override
   Widget build(BuildContext context) {
-    print(moviesIds.length);
     return GridView.builder(
       shrinkWrap: true,
       itemCount: moviesIds.length,

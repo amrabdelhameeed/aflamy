@@ -1,9 +1,9 @@
-import 'package:aflamy/core/utils/enums.dart';
-import 'package:aflamy/features/movies/domain/entites/now_playing_response.dart';
-import 'package:aflamy/features/movies/domain/usecases/base_usecase.dart';
-import 'package:aflamy/features/movies/domain/usecases/get_now_playing_usecase.dart';
-import 'package:aflamy/features/movies/presentation/controller/movies_bloc/movies_bloc.dart';
-import 'package:aflamy/service_locator/services_locator.dart';
+import '../../../../core/utils/enums.dart';
+import '../../domain/entites/now_playing_response.dart';
+import '../../domain/usecases/base_usecase.dart';
+import '../../domain/usecases/get_now_playing_usecase.dart';
+import '../controller/movies_bloc/movies_bloc.dart';
+import '../../../../service_locator/services_locator.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'movie_item.dart';
 import 'package:flutter/material.dart';

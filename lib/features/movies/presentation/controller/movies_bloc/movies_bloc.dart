@@ -1,4 +1,4 @@
-import 'package:aflamy/core/utils/parameters/get_movie_by_genre_id_parameters.dart';
+import '../../../../../core/utils/parameters/get_movie_by_genre_id_parameters.dart';
 
 import '../../../../../core/utils/enums.dart';
 import '../../../data/models/genre_model.dart';
