@@ -1,8 +1,6 @@
+import 'package:aflamy/features/movies/presentation/components/trending_item.dart';
 import '../../../../core/utils/enums.dart';
-import '../components/cached_image_with_shimmer.dart';
-import '../components/favourite_icon.dart';
 import '../controller/movies_bloc/movies_bloc.dart';
-import 'movie_details_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -55,33 +53,8 @@ class _TrendingScreenState extends State<TrendingScreen> {
                   mainAxisSpacing: 20),
               itemBuilder: (context, index) {
                 if (state.trendingResponse!.length > index) {
-                  return GestureDetector(
-                    onTap: () => Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                            builder: (_) => MovieDetails(
-                                movie: state.trendingResponse![index]))),
-                    child: ClipRRect(
-                      borderRadius:
-                          const BorderRadius.all(Radius.circular(18.0)),
-                      child: Stack(
-                        fit: StackFit.passthrough,
-                        children: [
-                          Hero(
-                            tag: state.trendingResponse![index].backdropPath!,
-                            child: CachedImageWithShimmer(
-                                imageUrl: state
-                                    .trendingResponse![index].backdropPath!),
-                          ),
-                          Positioned(
-                              top: 5,
-                              right: 5,
-                              child: FavouriteIcon(
-                                movie: state.trendingResponse![index],
-                              ))
-                        ],
-                      ),
-                    ),
+                  return TrendingItem(
+                    movie: state.trendingResponse![index],
                   );
                 } else {
                   if (state.trendingRequestState == RequestState.loading) {

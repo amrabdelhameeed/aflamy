@@ -20,7 +20,7 @@ class MovieItem extends StatelessWidget {
         onTap: () {
           Navigator.push(context, MaterialPageRoute(
             builder: (context) {
-              return MovieDetails(movie: movie);
+              return MovieDetailsScreen(movie: movie);
             },
           ));
         },

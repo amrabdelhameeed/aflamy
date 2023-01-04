@@ -64,7 +64,7 @@ class NowPlayingCarousel extends StatelessWidget {
                   onTap: () {
                     Navigator.push(context, MaterialPageRoute(
                       builder: (context) {
-                        return MovieDetails(movie: movies[index]);
+                        return MovieDetailsScreen(movie: movies[index]);
                       },
                     ));
                   },

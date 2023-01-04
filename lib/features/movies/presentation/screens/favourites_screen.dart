@@ -3,8 +3,8 @@ import 'package:flutter/material.dart';
 import '../../../../core/utils/database_provider.dart';
 import '../components/movies_gridview.dart';
 
-class TestPage extends StatelessWidget {
-  const TestPage({
+class FavouriteScreen extends StatelessWidget {
+  const FavouriteScreen({
     super.key,
   });
   @override

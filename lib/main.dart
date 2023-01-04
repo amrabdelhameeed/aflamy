@@ -1,3 +1,4 @@
+import 'package:aflamy/features/movies/presentation/screens/home_layout.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:hive/hive.dart';
@@ -6,7 +7,6 @@ import 'package:path_provider/path_provider.dart' as path;
 
 import 'core/utils/app_database_keys.dart';
 import 'core/utils/themes.dart';
-import 'features/movies/presentation/screens/home_screen.dart';
 import 'service_locator/services_locator.dart';
 
 Future main() async {
@@ -28,7 +28,7 @@ class MyApp extends StatelessWidget {
           theme: AppThemes.light,
           debugShowCheckedModeBanner: false,
           title: "Aflamy",
-          home: const FakeScreen(),
+          home: const HomeLayout(),
         );
       },
     );
