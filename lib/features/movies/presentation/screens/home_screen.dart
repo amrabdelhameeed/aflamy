@@ -9,71 +9,10 @@ import '../../../../core/utils/custom_icons_icons.dart';
 import '../../../../core/utils/enums.dart';
 import '../components/categories_chips.dart';
 import '../components/movies_listview.dart';
-import '../controller/bottom_nav_bar_bloc/bottom_nav_bar_bloc.dart';
 import '../controller/movies_bloc/movies_bloc.dart';
-import 'favourites_screen.dart';
 import '../../../../service_locator/services_locator.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-
-class FakeScreen extends StatefulWidget {
-  const FakeScreen({super.key});
-
-  @override
-  State<FakeScreen> createState() => _FakeScreenState();
-}
-
-List<Widget> screens = const [Home(), TestPage()];
-List<Widget> titles = [
-  Image.asset(Assets.assetsImagesAppIcon,
-      width: 23, height: 33, fit: BoxFit.cover),
-  const Text("Favorites")
-];
-
-class _FakeScreenState extends State<FakeScreen> {
-  @override
-  Widget build(BuildContext context) {
-    return MultiBlocProvider(
-      providers: [
-        BlocProvider(create: (context) => BottomNavBarBloc()),
-        BlocProvider(
-          create: (context) => sl<MoviesBloc>()
-            ..add(const GetNowPlayingEvent())
-            ..add(const GetUpComingEvent(page: 1))
-            ..add(const GetMoviesByGenresIdEvent())
-            ..add(const GetAllGenresEvent())
-            ..add(const GetTrendingEvent()),
-        )
-      ],
-      child: BlocBuilder<BottomNavBarBloc, ChangeBottomNavBarState>(
-        builder: (context, state) {
-          return Scaffold(
-            backgroundColor: const Color(AppColor.mainColor),
-            bottomNavigationBar: CustomBottomNavBar(
-              curIndex: state.index,
-              onTap: (index) {
-                context
-                    .read<BottomNavBarBloc>()
-                    .add(ChangeBottomNavBarEvent(index));
-              },
-            ),
-            floatingActionButtonLocation:
-                FloatingActionButtonLocation.centerDocked,
-            floatingActionButton: TrendButton(),
-            appBar: AppBar(
-              elevation: 0.0,
-              backgroundColor: Colors.transparent,
-              centerTitle: true,
-              toolbarHeight: 40,
-              title: titles[state.index],
-            ),
-            body: screens[state.index],
-          );
-        },
-      ),
-    );
-  }
-}
 
 class Home extends StatelessWidget {
   const Home({super.key});
@@ -123,60 +62,9 @@ class Home extends StatelessWidget {
             }
           },
         ),
-        // BlocBuilder<MoviesBloc, MoviesState>(
-        //   builder: (context, state) {
-        //     if (state.nowPlayingRequestState == RequestState.loaded) {
-        //       return TitleWithWidget(
-        //           title: "Now Playing",
-        //           widget: MoviesListView(
-        //             movies: state.nowPlayingResponse!.movies!,
-        //           ));
-        //     } else {
-        //       return const Center(
-        //         child: CircularProgressIndicator(),
-        //       );
-        //     }
-        //   },
-        // ),
         const CategoriesChips(),
-        // const SizedBox(
-        //   height: 40,
-        // )
       ],
     ));
-  }
-}
-
-class TrendButton extends StatelessWidget {
-  const TrendButton({
-    Key? key,
-  }) : super(key: key);
-  @override
-  Widget build(BuildContext context) {
-    return SizedBox(
-      width: 90,
-      height: 90,
-      child: FloatingActionButton(
-        elevation: 0.0,
-        child: const CircleAvatar(
-          radius: 60,
-          backgroundColor: Color(AppColor.mainColor),
-          backgroundImage: AssetImage(
-            Assets.assetsImagesFloatingActionButton,
-          ),
-        ),
-        onPressed: () {
-          Navigator.push(context, MaterialPageRoute(
-            builder: (context) {
-              return BlocProvider.value(
-                value: sl<MoviesBloc>(),
-                child: const TrendingScreen(),
-              );
-            },
-          ));
-        },
-      ),
-    );
   }
 }
 
