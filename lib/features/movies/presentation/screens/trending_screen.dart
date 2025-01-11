@@ -1,3 +1,4 @@
+import 'package:aflamy/core/app_widgets/loading_indicator.dart';
 import 'package:aflamy/features/movies/presentation/components/trending_item.dart';
 import '../../../../core/utils/enums.dart';
 import '../controller/movies_bloc/movies_bloc.dart';
@@ -58,7 +59,7 @@ class _TrendingScreenState extends State<TrendingScreen> {
                   );
                 } else {
                   if (state.trendingRequestState == RequestState.loading) {
-                    return const Center(child: CircularProgressIndicator());
+                    return const Center(child: LoadingIndicator());
                   } else {
                     return const SizedBox.shrink();
                   }
@@ -67,7 +68,7 @@ class _TrendingScreenState extends State<TrendingScreen> {
             );
           } else {
             return const Center(
-              child: CircularProgressIndicator(),
+              child: LoadingIndicator(),
             );
           }
         },

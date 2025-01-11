@@ -1,18 +1,18 @@
+import 'package:aflamy/core/app_widgets/loading_indicator.dart';
+
 import '../components/up_coming_carousel.dart';
-import 'trending_screen.dart';
 
 import '../../../../core/app_widgets/title_with_widget.dart';
 import '../../../../core/utils/app_colors.dart';
 import '../../../../core/utils/app_strings.dart';
-import '../../../../core/utils/assets.dart';
 import '../../../../core/utils/custom_icons_icons.dart';
 import '../../../../core/utils/enums.dart';
 import '../components/categories_chips.dart';
 import '../components/movies_listview.dart';
 import '../controller/movies_bloc/movies_bloc.dart';
-import '../../../../service_locator/services_locator.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class Home extends StatelessWidget {
   const Home({super.key});
@@ -33,14 +33,11 @@ class Home extends StatelessWidget {
                   ));
             } else {
               return const Center(
-                child: CircularProgressIndicator(),
+                child: LoadingIndicator(),
               );
             }
           },
         ),
-        // const SizedBox(
-        //   height: 30,
-        // ),
         BlocBuilder<MoviesBloc, MoviesState>(
           builder: (context, state) {
             if ((state.upComingResponse != null &&
@@ -57,12 +54,15 @@ class Home extends StatelessWidget {
                   ));
             } else {
               return const Center(
-                child: CircularProgressIndicator(),
+                child: LoadingIndicator(),
               );
             }
           },
         ),
         const CategoriesChips(),
+        SizedBox(
+          height: 10.h,
+        )
       ],
     ));
   }

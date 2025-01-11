@@ -1,8 +1,6 @@
 import 'package:equatable/equatable.dart';
-import 'package:json_annotation/json_annotation.dart';
 part 'error_model.g.dart';
 
-@JsonSerializable()
 class ErrorModel extends Equatable {
   final int statusCode;
   final String statusMessage;

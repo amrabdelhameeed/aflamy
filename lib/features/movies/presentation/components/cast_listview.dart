@@ -1,3 +1,4 @@
+import 'package:aflamy/core/app_widgets/loading_indicator.dart';
 import 'package:aflamy/core/utils/enums.dart';
 import 'package:aflamy/features/movies/domain/entites/movies_response.dart';
 import 'package:aflamy/features/movies/presentation/components/cached_image_with_shimmer.dart';
@@ -55,7 +56,7 @@ class CastListView extends StatelessWidget {
             );
           } else {
             return const Center(
-              child: CircularProgressIndicator(),
+              child: LoadingIndicator(),
             );
           }
         },

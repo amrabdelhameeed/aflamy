@@ -1,3 +1,4 @@
+import 'package:aflamy/core/app_widgets/loading_indicator.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -51,7 +52,7 @@ class CategoriesChips extends StatelessWidget {
               );
             } else {
               return const Center(
-                child: CircularProgressIndicator(),
+                child: LoadingIndicator(),
               );
             }
           },
@@ -67,7 +68,7 @@ class CategoriesChips extends StatelessWidget {
               return const SizedBox(
                 height: 250,
                 child: Center(
-                  child: CircularProgressIndicator(),
+                  child: LoadingIndicator(),
                 ),
               );
             }
